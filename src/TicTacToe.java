@@ -1,6 +1,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Eli Musgrove (eli): Wrote isOver() method.
+ *
+ */
+
 public class TicTacToe {
     public static void main(String[] args) {
         int success = 0; // 0 if no success, 1 for p1 success, 2 for p2 success
