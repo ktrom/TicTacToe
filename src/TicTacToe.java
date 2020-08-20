@@ -87,6 +87,18 @@ class Board {
             return boardItems[0] == 'X' ? 1 : 2;
         }
 
+        // Check if the game is a draw
+        for (int i=0; i < 9; i++) {
+            if (boardItems[i] == 'e') {
+                break;
+            }
+
+            if (i == 8) {
+                // We're on the last square and haven't hit an empty
+                return 3;
+            }
+        }
+
         // Game not over yet
         return 0;
     }
