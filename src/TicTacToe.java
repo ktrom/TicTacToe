@@ -42,13 +42,13 @@ public class TicTacToe {
         while (!goodInput) {
             input = scan.nextInt();
             if (input >= 0 && input <= 8) {
-                if (board.boardItems[input] != 'e') {
+                if (board.boardItems[input] == 'e') {
                     goodInput = true;
                 } else {
-                    System.out.print("\n Spot Taken. Please enter 0-8 to place an " + xOrO + ": ");
+                    System.out.print("\n Spot Taken. Please enter 0-8 to place an " + xOrO + ": \n");
                 }
             } else {
-                System.out.print("\n Invalid number. Please enter 0-8 to place an " + xOrO + ": ");
+                System.out.print("\n Invalid number. Please enter 0-8 to place an " + xOrO + ": \n");
             }
         }
         return input;
@@ -107,7 +107,7 @@ class Board {
                 returnString += '|';
             }
         }
-        returnString += "\n+-+-+-+\n";
+        returnString += "\n+-+-+-+\n\n";
         return returnString;
     }
     
