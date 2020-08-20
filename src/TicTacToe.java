@@ -45,10 +45,10 @@ public class TicTacToe {
                 if (board.boardItems[input] == 'e') {
                     goodInput = true;
                 } else {
-                    System.out.print("\n Spot Taken. Please enter 0-8 to place an " + xOrO + ": \n");
+                    System.out.print("\nSpot Taken. Please enter 0-8 to place an " + xOrO + ": \n");
                 }
             } else {
-                System.out.print("\n Invalid number. Please enter 0-8 to place an " + xOrO + ": \n");
+                System.out.print("\nInvalid number. Please enter 0-8 to place an " + xOrO + ": \n");
             }
         }
         return input;
