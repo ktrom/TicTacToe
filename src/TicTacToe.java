@@ -1,6 +1,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Eli Musgrove (eli): Wrote isOver() method.
+ *
+ */
+
 public class TicTacToe {
     public static void main(String[] args) {
         int success = 0; // 0 if no success, 1 for p1 success, 2 for p2 success
@@ -85,6 +90,18 @@ class Board {
         }
         if (boardItems[2] != 'e' && boardItems[2] == boardItems[4] && boardItems[4] == boardItems[6]) {
             return boardItems[0] == 'X' ? 1 : 2;
+        }
+
+        // Check if the game is a draw
+        for (int i=0; i < 9; i++) {
+            if (boardItems[i] == 'e') {
+                break;
+            }
+
+            if (i == 8) {
+                // We're on the last square and haven't hit an empty
+                return 3;
+            }
         }
 
         // Game not over yet
