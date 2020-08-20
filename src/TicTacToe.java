@@ -62,4 +62,64 @@ class Board {
         returnString += "\n+-+-+-+";
         return returnString;
     }
+    
+    public void updateBoard(boolean playerOneTurn, int location) {
+		if(playerOneTurn) {
+			boardItems[location] = 'X';
+		} else {
+			boardItems[location] = 'O';
+		}
+    }
+}
+
+public static int getInput(Board board, boolean playerOneTurn) {
+	// initial variables
+	boolean goodInput = false;
+	int input = -1;
+	Scanner scan = new Scanner(System.in);
+
+	// set xOrO to X if it is player 1's turn and O otherwise and ask for input
+	char xOrO;
+	if (playerOneTurn) {
+		xOrO = 'X';
+	} else {
+		xOrO = 'O';
+	}
+	System.out.print("Please enter 0-8 to place an " + xOrO + ": ");
+
+	while (!goodInput) {
+		input = scan.nextInt();
+		if (input >= 0 && input <= 8) {
+			if (board.boardItems[input] != 'e') {
+				goodInput = true;
+			} else {
+				System.out.print("\n Spot Taken. Please enter 0-8 to place an " + xOrO + ": ");
+			}
+		} else {
+			System.out.print("\n Invalid number. Please enter 0-8 to place an " + xOrO + ": ");
+		}
+	}
+	return input;
+}
+
+public static void main(String[] args) {
+	int success = 0; // 0 if no success, 1 for p1 success, 2 for p2 success
+	boolean playerOneTurn = true;
+	Board board = new Board();
+	int input;
+
+	while (success == 0) {
+		input = getInput(board, playerOneTurn);
+		board.updateBoard(playerOneTurn, input);
+//		success = checkSuccess();
+		playerOneTurn = !playerOneTurn;
+		System.out.print(board.toString());
+	}
+	if (success == 1) {
+		System.out.println("Congrats Player 1");
+	} else {
+		System.out.println("Congrats Player 2");
+	}
+}
+
 }
