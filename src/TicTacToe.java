@@ -61,7 +61,7 @@ class Board {
 
     public Board() {
         boardItems = new char[9];
-        Arrays.fill(boardItems, 'E');
+        Arrays.fill(boardItems, 'e');
     }
 
     public int isOver() {
@@ -98,7 +98,7 @@ class Board {
             if (i % 3 == 0) {
                 returnString += "\n+-+-+-+\n";
             }
-            if (boardItems[i] == 'E') {
+            if (boardItems[i] == 'e') {
                 returnString += "|" + i;
             } else {
                 returnString += "|" + boardItems[i];
