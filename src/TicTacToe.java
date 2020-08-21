@@ -62,7 +62,6 @@ public class TicTacToe {
         }
         return input;
     }
-
 }
 
 class Board {
@@ -93,7 +92,7 @@ class Board {
             return boardItems[0] == 'X' ? 1 : 2;
         }
         if (boardItems[2] != 'e' && boardItems[2] == boardItems[4] && boardItems[4] == boardItems[6]) {
-            return boardItems[0] == 'X' ? 1 : 2;
+            return boardItems[2] == 'X' ? 1 : 2;
         }
 
         // Check if the game is a draw
