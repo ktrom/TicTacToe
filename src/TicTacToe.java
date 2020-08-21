@@ -16,16 +16,20 @@ public class TicTacToe {
         System.out.print(board.toString());
         while (success == 0) {
             input = getInput(board, playerOneTurn);
-            board.updateBoard(playerOneTurn, input);
+            board.updateBoard(playerOneTurn, input - 1);
             success = board.isOver();
             playerOneTurn = !playerOneTurn;
             System.out.print(board.toString());
         }
         if (success == 1) {
-            System.out.println("Congrats Player 1");
-        } else {
-            System.out.println("Congrats Player 2");
+            System.out.println("Player 1 wins!! Congrats Player 1");
+        } else if(success == 2){
+            System.out.println("Player 2 wins!! Congrats Player 2");
         }
+        else{
+            System.out.println("It's a draw!");
+        }
+
     }
 
 
@@ -42,18 +46,18 @@ public class TicTacToe {
         } else {
             xOrO = 'O';
         }
-        System.out.print("Please enter 0-8 to place an " + xOrO + ": ");
+        System.out.print("Please enter 1-9 to place an " + xOrO + ": ");
 
         while (!goodInput) {
             input = scan.nextInt();
-            if (input >= 0 && input <= 8) {
-                if (board.boardItems[input] == 'e') {
+            if (input >= 1 && input <= 9) {
+                if (board.boardItems[input - 1] == 'e') {
                     goodInput = true;
                 } else {
-                    System.out.print("\nSpot Taken. Please enter 0-8 to place an " + xOrO + ": \n");
+                    System.out.print("\nSpot Taken. Please enter 1-9 to place an " + xOrO + ": \n");
                 }
             } else {
-                System.out.print("\nInvalid number. Please enter 0-8 to place an " + xOrO + ": \n");
+                System.out.print("\nInvalid number. Please enter 1-9 to place an " + xOrO + ": \n");
             }
         }
         return input;
@@ -116,7 +120,7 @@ class Board {
                 returnString += "\n+-+-+-+\n";
             }
             if (boardItems[i] == 'e') {
-                returnString += "|" + i;
+                returnString += "|" + (i + 1);
             } else {
                 returnString += "|" + boardItems[i];
             }
