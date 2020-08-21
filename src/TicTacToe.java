@@ -4,9 +4,22 @@ import java.util.Scanner;
 /**
  * Eli Musgrove (eli): Wrote isOver() method.
  * Kyle Trom created Board methods aside from isOver()
+ * Cassandra Labath wrote main() runSuccess() getInput() and updateBoard()
  */
 
 public class TicTacToe {
+
+    public static void runSuccess(int success){
+        if (success == 1) {
+            System.out.println("Player 1 wins!! Congrats Player 1");
+        } else if(success == 2){
+            System.out.println("Player 2 wins!! Congrats Player 2");
+        }
+        else{
+            System.out.println("It's a draw!");
+        }
+    }
+
     public static void main(String[] args) {
         int success = 0; // 0 if no success, 1 for p1 success, 2 for p2 success
         boolean playerOneTurn = true;
@@ -21,17 +34,8 @@ public class TicTacToe {
             playerOneTurn = !playerOneTurn;
             System.out.print(board.toString());
         }
-        if (success == 1) {
-            System.out.println("Player 1 wins!! Congrats Player 1");
-        } else if(success == 2){
-            System.out.println("Player 2 wins!! Congrats Player 2");
-        }
-        else{
-            System.out.println("It's a draw!");
-        }
-
+        runSuccess(success);
     }
-
 
     public static int getInput(Board board, boolean playerOneTurn) {
         // initial variables
