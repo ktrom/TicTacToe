@@ -20,23 +20,6 @@ public class TicTacToe {
         }
     }
 
-    public static void main(String[] args) {
-        int success = 0; // 0 if no success, 1 for p1 success, 2 for p2 success
-        boolean playerOneTurn = true;
-        Board board = new Board();
-        int input;
-
-        System.out.print(board.toString());
-        while (success == 0) {
-            input = getInput(board, playerOneTurn);
-            board.updateBoard(playerOneTurn, input - 1);
-            success = board.isOver();
-            playerOneTurn = !playerOneTurn;
-            System.out.print(board.toString());
-        }
-        runSuccess(success);
-    }
-
     public static int getInput(Board board, boolean playerOneTurn) {
         // initial variables
         boolean goodInput = false;
@@ -65,6 +48,23 @@ public class TicTacToe {
             }
         }
         return input;
+    }
+    
+    public static void main(String[] args) {
+        int success = 0; // 0 if no success, 1 for p1 success, 2 for p2 success
+        boolean playerOneTurn = true;
+        Board board = new Board();
+        int input;
+
+        System.out.print(board.toString());
+        while (success == 0) {
+            input = getInput(board, playerOneTurn);
+            board.updateBoard(playerOneTurn, input - 1);
+            success = board.isOver();
+            playerOneTurn = !playerOneTurn;
+            System.out.print(board.toString());
+        }
+        runSuccess(success);
     }
 }
 
