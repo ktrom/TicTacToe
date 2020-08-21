@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * Eli Musgrove (eli): Wrote isOver() method.
- *
+ * Kyle Trom created all Board methods aside from isOver()
  */
 
 public class TicTacToe {
